@@ -1,0 +1,230 @@
+{
+    "training": {
+        "observations": {
+            "items": [
+                {
+                    "name": "joint_values",
+                    "dimensions": 6,
+                    "history": 1
+                },
+                {
+                    "name": "end_effector_pose",
+                    "dimensions": 7,
+                    "history": 1
+                },
+                {
+                    "name": "target_pose",
+                    "dimensions": 7,
+                    "history": 1
+                },
+                {
+                    "name": "link_positions",
+                    "dimensions": 30,
+                    "history": 1
+                },
+                {
+                    "name": "pose",
+                    "dimensions": 7,
+                    "history": 0
+                }
+            ]
+        },
+        "action_variance": {
+            "max": 0.1,
+            "min": 1e-08,
+            "log": true
+        },
+        "centralized_policy": false,
+        "centralized_critic": false,
+        "algo": "sac",
+        "hyperparameters": {
+            "pi_lr": 0.0005,
+            "q_lr": 0.001,
+            "discount": 0.99,
+            "tau": 0.001,
+            "alpha": 0.001,
+            "batch_size": 4096,
+            "warmup_timesteps": 20000.0,
+            "memory_cluster_capacity": 50000.0,
+            "num_updates_per_train": 10,
+            "minimum_replay_buffer_freshness": 0.7,
+            "action_scaling": 1
+        },
+        "network": {
+            "critic": {
+                "modules": [
+                    "lstm",
+                    "mlp"
+                ],
+                "mlp_layers": [
+                    128,
+                    64
+                ],
+                "lstm_hidden_size": 256,
+                "lstm_num_layers": 1,
+                "lstm_bidirectional": false,
+                "initial_hidden_state": "zero"
+            },
+            "actor": {
+                "modules": [
+                    "lstm",
+                    "mlp"
+                ],
+                "mlp_layers": [
+                    128,
+                    64
+                ],
+                "lstm_hidden_size": 256,
+                "lstm_num_layers": 1,
+                "lstm_bidirectional": false,
+                "initial_hidden_state": "zero"
+            }
+        },
+        "update_interval": 16000,
+        "save_interval": 1,
+        "num_processes": 16
+    },
+    "environment": {
+        "action_type": "delta",
+        "min_ur5s_count": 1,
+        "max_ur5s_count": 4,
+        "task": {
+            "generation_method": "random",
+            "type": "static",
+            "difficulty": {
+                "min_distance_between_bases": 0.3,
+                "max_distance_between_bases": 1.0
+            }
+        },
+        "expert": {
+            "expert_on_fail": true,
+            "waypoint_conversion_mode": "tolerance",
+            "threshold_config ": {
+                "threshold": 0.1
+            },
+            "tolerance_config": {
+                "max_magnitude": 0.5,
+                "tolerance": 0.1,
+                "threshold": 0.01
+            }
+        },
+        "ur5s_position_picker": "evenly_spaced",
+        "retry_on_fail": false,
+        "prioritized_task_loader": false,
+        "workspace_radius": 0.85,
+        "reward": {
+            "collision_penalty": -0.05,
+            "individually_reach_target": 0.01,
+            "cooperative_individual_reach_target": false,
+            "collectively_reach_target": 1.0,
+            "survival_penalty": 0,
+            "delta": {
+                "position": 0,
+                "orientation": 0,
+                "activation_radius": 100
+            },
+            "supervision_penalty": 0,
+            "proximity_penalty": {
+                "max_distance": 1.0,
+                "penalty": 0
+            }
+        },
+        "terminate_on_collision": true,
+        "terminate_on_collectively_reach_target": true,
+        "episode_length": 500,
+        "action_interval": 0.05,
+        "collision_distance": 0.0,
+        "stop_ur5_after_reach": false,
+        "ur5_speed": 0.02,
+        "position_tolerance": 0.04,
+        "orientation_tolerance": 0.1,
+        "curriculum": {
+            "graduation_threshold": 0.7,
+            "levels": [
+                {
+                    "position_tolerance": 0.1,
+                    "orientation_tolerance": 0.2,
+                    "max_task_ur5s_count": 4,
+                    "max_task_difficulty": 100.0
+                },
+                {
+                    "position_tolerance": 0.08,
+                    "orientation_tolerance": 0.16
+                },
+                {
+                    "position_tolerance": 0.06,
+                    "orientation_tolerance": 0.14
+                },
+                {
+                    "position_tolerance": 0.04,
+                    "orientation_tolerance": 0.1
+                },
+                {
+                    "position_tolerance": 0.036,
+                    "orientation_tolerance": 0.09
+                },
+                {
+                    "position_tolerance": 0.032,
+                    "orientation_tolerance": 0.08
+                },
+                {
+                    "position_tolerance": 0.028,
+                    "orientation_tolerance": 0.07
+                },
+                {
+                    "position_tolerance": 0.026,
+                    "orientation_tolerance": 0.06
+                },
+                {
+                    "position_tolerance": 0.024,
+                    "orientation_tolerance": 0.05
+                },
+                {
+                    "position_tolerance": 0.022
+                },
+                {
+                    "position_tolerance": 0.021
+                },
+                {
+                    "position_tolerance": 0.02
+                },
+                {
+                    "position_tolerance": 0.019
+                },
+                {
+                    "position_tolerance": 0.018
+                },
+                {
+                    "position_tolerance": 0.017
+                },
+                {
+                    "position_tolerance": 0.016
+                },
+                {
+                    "position_tolerance": 0.015
+                },
+                {
+                    "position_tolerance": 0.014
+                },
+                {
+                    "position_tolerance": 0.013
+                },
+                {
+                    "position_tolerance": 0.012
+                },
+                {
+                    "position_tolerance": 0.011
+                },
+                {
+                    "position_tolerance": 0.01
+                }
+            ]
+        }
+    },
+    "behaviour-clone": {
+        "lr": 0.001,
+        "batch_size": 128,
+        "weight_decay": 1e-05,
+        "epochs": 100
+    }
+}

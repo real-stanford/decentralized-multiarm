@@ -1,0 +1,20 @@
+name: multiarm
+channels:
+  - pytorch
+  - anaconda
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.7
+  - matplotlib
+  - pytorch
+  - numpy
+  - seaborn
+  - pip
+  - tqdm
+  - pip:
+    - gym
+    - numpy-quaternion
+    - ray
+    - tensorboardx
+    - pybullet
