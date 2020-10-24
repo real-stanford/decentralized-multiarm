@@ -1,3 +1,6 @@
+benchmark/
+ours/
+
 .vscode/
 .vim/
 tags

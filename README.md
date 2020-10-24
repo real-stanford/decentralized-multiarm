@@ -7,7 +7,7 @@
 Columbia University, New York, NY, United States<br>
 [CoRL 2020](https://www.robot-learning.org/)
 
-### [Project Page](https://multiarm.cs.columbia.edu/) | [Video](#) | [Paper](#) 
+### [Project Page](https://multiarm.cs.columbia.edu/) | [Video](#) | [Arxiv](#) 
 
 ![](assets/teaser.png)
 
@@ -35,7 +35,7 @@ In the repo's root, download the pretrained weights and evaluation benchmark
 wget -qO- https://multiarm.cs.columbia.edu/downloads/checkpoints/ours.tar.xz | tar xvfJ -
 wget -qO- https://multiarm.cs.columbia.edu/downloads/data/benchmark.tar.xz | tar xvfJ -
 ```
-Then evaluate the pretrained weights on the benchmark with
+Then evaluate the pretrained weights on the benchmark in static mode with
 ```sh
 python main.py --mode benchmark --tasks_path benchmark/ --load ours/ours.pth --num_processes 1 --gui
 ```
@@ -44,6 +44,10 @@ You can remove `--gui` to run headless, and use more CPU cores with `--num_proce
 To summarize the benchmark results
 ```sh
 python summary.py ours/benchmark_score.pkl
+```
+To evaluate the pretrained weights on the benchmark in dynamic mode, run 
+```sh
+python benchmark_dynamic.py --mode benchmark --tasks_path benchmark/ --load ours/ours.pth --num_processes 1 --gui
 ```
 
 ## Train a decentralized multi-arm motion planner
@@ -63,9 +67,9 @@ python main --configs/default.json --tasks_path tasks/ --expert_waypoints expert
 
 ```
 @inproceedings{ha2020multiarm,
-  title={Learning a Decentralized Multiarm Motion Planner},
-  author={Huy Ha and Jingxi Xu and Shuran Song},
-  year={2020},
-  booktitle={CoRL},
+	title={Learning a Decentralized Multi-arm Motion Planner},
+	author={Ha, Huy and Xu, Jingxi and Song, Shuran},
+	booktitle={Conference on Robotic Learning (CoRL)},
+	year={2020}
 }
 ```
