@@ -715,7 +715,7 @@ class BaseEnv:
         pass
 
     def on_collision(self):
-        visualize_collision = True
+        visualize_collision = False
         if visualize_collision:
             self.visualize_collision()
 
