@@ -9,7 +9,7 @@ Columbia University, New York, NY, United States<br>
 
 ### [Project Page](https://multiarm.cs.columbia.edu/) | [Video](#) | [Arxiv](#) 
 
-![](assets/teaser.png)
+![](assets/teaser.gif)
 
 ## Setup
 
