@@ -56,11 +56,12 @@ In the repo's root, download the training tasks and expert demonstration dataset
 
 ```sh
 wget -qO- https://multiarm.cs.columbia.edu/downloads/data/tasks.tar.xz | tar xvfJ -
-wget -qO- https://multiarm.cs.columbia.edu/downloads/data/expert-demonstrations.tar.xz | tar xvfJ -
+wget -qO- https://multiarm.cs.columbia.edu/downloads/data/expert.tar.xz | tar xvfJ -
 ```
 Then train a decentralized multi-arm motion planner from scratch with 
 ```sh
-python main --configs/default.json --tasks_path tasks/ --expert_waypoints expert-demonstrations/ --num_processes 16
+mkdir runs
+python main.py --config configs/default.json --tasks_path tasks/ --expert_waypoints expert/ --num_processes 16 --name multiarm_motion_planner
 ```
 
 ## Citation
