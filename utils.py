@@ -171,8 +171,10 @@ def create_policies(args,
                     actor_obs_dim,
                     critic_obs_dim,
                     training,
-                    logger):
-    device = get_device()
+                    logger,
+                    device=None):
+    if device is None:
+        device = get_device()
     hyperparams = training_config['hyperparameters']
 
     def create_policy():

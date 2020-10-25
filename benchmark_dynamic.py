@@ -59,7 +59,8 @@ if __name__ == "__main__":
             actor_obs_dim=obs_dim,
             critic_obs_dim=obs_dim,
             training=args.mode == 'train',
-            logger=None)
+            logger=None,
+            device='cpu')
         policy = policy_manager.get_inference_nodes()[
             'multiarm_motion_planner']
 
