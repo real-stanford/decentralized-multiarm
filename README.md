@@ -7,7 +7,7 @@
 Columbia University, New York, NY, United States<br>
 [CoRL 2020](https://www.robot-learning.org/)
 
-### [Project Page](https://multiarm.cs.columbia.edu/) | [Video](#) | [Arxiv](#) 
+### [Project Page](https://multiarm.cs.columbia.edu/) | [Video](https://youtu.be/AT1-YeuJjuM) | [Arxiv](#) 
 
 ![](assets/teaser.gif)
 
