@@ -11,6 +11,8 @@ Columbia University, New York, NY, United States<br>
 
 ![](assets/teaser.gif)
 
+Visualizations created using [PyBullet-Blender recorder](https://github.com/huy-ha/pybullet-blender-recorder)
+
 ## Setup
 
 Python 3.7 dependencies:
