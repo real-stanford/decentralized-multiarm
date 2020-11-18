@@ -1,3 +1,9 @@
+# ------------------------------------------------
+# This file is partly borrowed and adapted from 
+# https://github.com/caelan/motion-planners
+# ------------------------------------------------
+
+
 from random import random
 
 from .rrt_utils import irange, argmin
