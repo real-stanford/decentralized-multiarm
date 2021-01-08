@@ -66,6 +66,10 @@ mkdir runs
 python main.py --config configs/default.json --tasks_path tasks/ --expert_waypoints expert/ --num_processes 16 --name multiarm_motion_planner
 ```
 
+## Running the 6 DOF Bin Pick and Place Demo
+
+See [demo/README.md](demo/README.md) for instructions.
+
 ## Citation
 
 ```

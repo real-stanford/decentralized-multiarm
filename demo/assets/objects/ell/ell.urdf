@@ -1,0 +1,50 @@
+<?xml version="0.0" ?>
+<robot name="ell.urdf">
+  <link name="baseLink">
+    <contact>
+      <lateral_friction value="1.0"/>
+      <rolling_friction value="0.0001"/>
+      <inertia_scaling value="3.0"/>
+    </contact>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.02 0.02 0"/>
+       <mass value=".1"/>
+       <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+
+    <visual>
+      <origin rpy="0 0 0" xyz="0.04 0 0"/>
+      <geometry>
+        <box size=".1 .02 .02"/>
+      </geometry>
+      <material name="green">
+        <color rgba="0.3059 0.4745 0.6549 1"/>
+      </material>
+    </visual>
+
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0.04 0"/>
+      <geometry>
+        <box size=".0199 .1 .0199"/>
+      </geometry>
+      <material name="green">
+        <color rgba="0.3059 0.4745 0.6549 1"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin rpy="0 0 0" xyz="0.04 0 0"/>
+      <geometry>
+        <box size=".1 .02 .02"/>
+      </geometry>
+    </collision>
+
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0.04 0"/>
+      <geometry>
+        <box size=".0199 .1 .0199"/>
+      </geometry>
+    </collision>
+  </link>
+</robot>
+
