@@ -12,9 +12,14 @@ dependencies:
   - seaborn
   - pip
   - tqdm
+  - numba
   - pip:
     - gym
     - numpy-quaternion
     - ray
     - tensorboardx
     - pybullet
+    - transforms3d
+    - trimesh
+    - PySimpleGUI
+    - urdfpy

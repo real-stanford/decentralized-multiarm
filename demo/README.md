@@ -1,5 +1,11 @@
 # Running the 6 DOF Bin Pick and Place Demo
 
+In the `demo/` directory, download the benchmark tasks to the `tasks/` directory
+```
+wget -qO- https://multiarm.cs.columbia.edu/downloads/data/benchmark.tar.xz | tar xvfJ -
+mv benchmark tasks/
+```
+
 To run the demo for 500 experiments
 ```sh
 python demo.py
